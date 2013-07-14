@@ -4,7 +4,7 @@ class SasscHead < Formula
   homepage ''
   head 'https://github.com/hcatlin/sassc.git'
 
-  depends_on "benschwarz/homebrew-sass/libsass-head"
+  depends_on "libsass-head"
 
   def install
     system "make"
