@@ -3,7 +3,7 @@
 Say you want the latest version of sassc/libsass installed on your system… using homebrew? You're in luck.
 
 ```bash
-brew tap benschwarz/homebrew-sass
+brew tap benschwarz/homebrew-sassc
 brew install sassc --HEAD
 ```
 
