@@ -1,17 +1,13 @@
 require 'formula'
 
-class SasscHead < Formula
-  homepage ''
+class Sassc < Formula
   head 'https://github.com/hcatlin/sassc.git'
 
-  depends_on "libsass-head"
-
   def install
+    system "rm -rf libsass"
+    system "git clone --depth 1 https://github.com/hcatlin/libsass.git libsass"
+
     system "make"
     bin.install './bin/sassc'
-  end
-
-  test do
-    system "#{bin}/sassc", "-h"
   end
 end
