@@ -7,7 +7,7 @@ class Sassc < Formula
     system "rm -rf libsass"
     system "git clone --depth 1 https://github.com/hcatlin/libsass.git libsass"
 
-    system "make"
+    system "SASS_LIBSASS_PATH=`pwd`/libsass make"
     bin.install './bin/sassc'
   end
 end
