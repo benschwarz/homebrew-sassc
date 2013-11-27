@@ -2,12 +2,18 @@ require 'formula'
 
 class Sassc < Formula
   head 'https://github.com/hcatlin/sassc.git'
+  homepage 'https://github.com/hcatlin/sassc'
+  
+  resource 'libsass' do
+    url 'https://github.com/hcatlin/libsass/archive/master.tar.gz'
+  end
 
   def install
-    system "rm -rf libsass"
-    system "git clone --depth 1 https://github.com/hcatlin/libsass.git libsass"
+    (buildpath/'libsass').install resource('libsass')
+
+    ENV['SASS_LIBSASS_PATH'] = (buildpath/'libsass')
 
     system "make"
-    bin.install './bin/sassc'
+    bin.install (buildpath/'bin'/'sassc')
   end
 end
